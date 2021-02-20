@@ -63,6 +63,7 @@ class API {
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $bodyData);
+		//Is needed Don't remove
 		curl_setopt($ch, CURLOPT_USERAGENT, 'OPL/1.0');
 
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
