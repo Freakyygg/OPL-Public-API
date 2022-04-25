@@ -15,11 +15,13 @@ API_v3_test::init('');
 $tournament_ID = 125;
 $team_ID = 1;
 $account_ID = 1;
+$matchup_ID = 4057;
 
 //$call = API_v3_test::get_team($team_ID);
 //$call = API_v3_test::get_user($account_ID);
-// $call = API_v3_test::get_tournament($tournament_ID);
-$call = API_v3_test::get_standing($tournament_ID);
+//$call = API_v3_test::get_tournament($tournament_ID);
+//$call = API_v3_test::get_standing($tournament_ID);
+$call = API_v3_test::get_matchup($matchup_ID);
 
 if(isset($call->code)) {
 	if($call->code != 200) {

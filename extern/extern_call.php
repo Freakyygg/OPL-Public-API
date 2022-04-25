@@ -39,6 +39,12 @@ class API_v3_test {
 		);
 	}
 
+	public static function get_matchup($matchup_ID) {
+		return self::sendPostRequest(
+			self::buildData('get_matchup', 'matchup_ID', $matchup_ID)
+		);
+	}
+
 	public static function buildData($endPoint, $variable, $ID) {
 		return [
 			'endpoint' => $endPoint,
@@ -53,12 +59,16 @@ class API_v3_test {
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
+		//Is needed don't remove
+		curl_setopt($ch, CURLOPT_USERAGENT, 'OPL/1.0');
+
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'accept: application/json',
             'Authorization: Bearer ' . self::$apikey
         ));
 
         curl_setopt($ch, CURLOPT_URL, self::URL);
+		
         $result = curl_exec($ch);
         if (!curl_errno($ch)) {
             $info = curl_getinfo($ch);
